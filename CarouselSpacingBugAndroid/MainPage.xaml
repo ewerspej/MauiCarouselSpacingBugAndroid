@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+  x:Class="CarouselSpacingBugAndroid.MainPage"
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:carouselSpacingBugAndroid="clr-namespace:CarouselSpacingBugAndroid"
+  xmlns:system="clr-namespace:System;assembly=System.Runtime"
+  x:DataType="carouselSpacingBugAndroid:MainViewModel">
+
+  <CarouselView
+    BackgroundColor="Red"
+    HeightRequest="400"
+    ItemsSource="{Binding Items}"
+    WidthRequest="300">
+    <CarouselView.ItemsLayout>
+      <LinearItemsLayout
+        ItemSpacing="50"
+        Orientation="Horizontal"
+        SnapPointsAlignment="Center"
+        SnapPointsType="MandatorySingle" />
+    </CarouselView.ItemsLayout>
+    <CarouselView.ItemTemplate>
+      <DataTemplate x:DataType="{x:Type system:String}">
+        <Grid
+          Margin="0"
+          Padding="0"
+          BackgroundColor="Yellow">
+          <Label
+            FontSize="24"
+            HorizontalOptions="Center"
+            Text="{Binding}"
+            VerticalOptions="Center" />
+        </Grid>
+      </DataTemplate>
+    </CarouselView.ItemTemplate>
+  </CarouselView>
+
+</ContentPage>
